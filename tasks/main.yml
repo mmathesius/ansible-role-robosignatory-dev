@@ -1,2 +1,8 @@
----
-# tasks file for ansible-role-robosignatory
+# base system setup
+- include_tasks: system.yml
+
+# robosignatory setup
+- include_tasks: robosignatory.yml
+
+# fedora-messaging setup
+- include_tasks: fedora-messaging.yml

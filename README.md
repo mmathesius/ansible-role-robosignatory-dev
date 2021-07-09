@@ -1,38 +1,37 @@
-Role Name
-=========
+## Ansible Role: robosignatory
+This robosignatory role is used in the CentOS Infra.
 
-A brief description of the role goes here.
+Based off of https://pagure.io/fedora-infra/ansible/blob/main/f/roles/robosignatory
+etc.
 
-Requirements
-------------
+It surely depends (see dependencies below) on some other roles.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+See also [ansible-infra-playbooks](https://github.com/CentOS/ansible-infra-playbooks) directory to see how the tree/structure is organized
 
-Role Variables
---------------
+### Variables
+See [defaults variables and explanations](defaults/main.yml)
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+### Dependencies
+This role can depend on some other roles, either statically defined, or dynamically included/imported:
+  * See [meta/main.yml](meta/main.yml)
+  * Or each <task>.yml under tasks folder for included/imported roles
 
-Dependencies
-------------
+All those roles are declared in our [requirements.yml](https://github.com/CentOS/ansible-infra-playbooks/blob/master/requirements-production.yml) file.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+### Development
+Molecule tests use vagrant so you need a working vagrant installation in your host machine.
 
-Example Playbook
-----------------
+Running molecule tests require the following python libraries:
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+- molecule
+- molecule-vagrant
+- python-vagrant
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Tests can be executed by running:
 
-License
--------
+```sh
+molecule test
+```
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+### License
+MIT (see [LICENSE](LICENSE) file)
